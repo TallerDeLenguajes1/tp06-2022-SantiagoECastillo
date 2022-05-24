@@ -5,7 +5,19 @@ public class Calculadora{
         resultado = valorInicial;
     }
 
-    public void suma(double valor){
-        resultado += valor;
+    public void Sumar(double valor){
+        resultado = resultado + valor;
+    }
+    
+    public void Restar(double valor){
+        resultado -= valor;      
+    }
+
+    public void Multiplciar(double valor){
+        resultado = resultado * valor;      
+    }
+
+    public void Dividir(double valor){
+        resultado = resultado / valor;      
     }
 }
