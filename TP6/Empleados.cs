@@ -22,17 +22,32 @@ public class Empleado{
     public void antiguedad(){
         DateTime fechaHoy = new DateTime();
         fechaHoy = DateTime.Now;
-        int edad, jubilacion;
-        TimeSpan Antiguedad = fechaHoy - this.fechaIngresoEmpresa;
-        edad = fechaHoy.Year - this.fechaNacimiento.Year;
-        if(this.genero == 'm'){
-            jubilacion = 65 - Convert.ToInt32(edad);
-        }else{
-            jubilacion = 60 - Convert.ToInt32(edad);
-        }    
-        Console.WriteLine($"El empleado {this.nombre} {this.apellido} lleva: {Antiguedad.Days} Dias en la empresa");
-        Console.WriteLine($"EDAD: {edad}");
-        Console.WriteLine($"Años restante para jubilacion: {jubilacion} años");
+        int Antiguedad = fechaHoy.Year - this.fechaIngresoEmpresa.Year;
+            
+        Console.WriteLine($"El empleado {this.nombre} {this.apellido} lleva: {Antiguedad} Dias en la empresa");
 
     }
+
+    public int edad(){
+        int edad;
+        DateTime fechaHoy = new DateTime();
+        fechaHoy = DateTime.Now; 
+        edad = fechaHoy.Year - this.fechaNacimiento.Year;
+        
+        return edad;
+    }
+
+    public int jubilacio(){
+        int jubilacion;
+
+        if(this.genero == 'm'){
+            jubilacion = 65 - Convert.ToInt32(edad());
+        }else{
+            jubilacion = 60 - Convert.ToInt32(edad());
+        }
+
+        return jubilacion;
+    }
+    
+    
 }
