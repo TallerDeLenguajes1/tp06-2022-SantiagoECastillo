@@ -1,3 +1,4 @@
+
 public class Empleado{
     string nombre;
     string apellido;
@@ -6,9 +7,9 @@ public class Empleado{
     char genero;
     DateTime fechaIngresoEmpresa;
     double sueldoBase;
-    Cargo cargo;
+    Cargos cargo;
 
-    public Empleado(string nombre, string apellido, DateTime fechaNacimiento, DateTime fechaIngresoEmpresa, char estadoCivil, char genero, double sueldoBase){
+    public Empleado(string nombre, string apellido, DateTime fechaNacimiento, DateTime fechaIngresoEmpresa, char estadoCivil, char genero, double sueldoBase, Cargos cargo){
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
@@ -16,16 +17,15 @@ public class Empleado{
         this.estadoCivil = estadoCivil;
         this.genero = genero;
         this.sueldoBase = sueldoBase;
-        //this.cargo = cargo;
+        this.cargo = cargo;
     }
 
-    public void antiguedad(){
+    public int antiguedad(){
         DateTime fechaHoy = new DateTime();
         fechaHoy = DateTime.Now;
         int Antiguedad = fechaHoy.Year - this.fechaIngresoEmpresa.Year;
             
-        Console.WriteLine($"El empleado {this.nombre} {this.apellido} lleva: {Antiguedad} Dias en la empresa");
-
+        return Antiguedad;
     }
 
     public int edad(){
@@ -49,5 +49,28 @@ public class Empleado{
         return jubilacion;
     }
     
-    
+    public double salario(){
+        double salario, adicional=0;
+        
+        if(antiguedad()<20){
+            adicional = ((antiguedad()*0.1) * this.sueldoBase);
+        }else{
+            if(antiguedad()>25){
+                adicional = this.sueldoBase*0.25;
+            }
+        }
+
+        if(this.cargo == Cargos.Ingeniero || this.cargo == Cargos.Especialista){
+            adicional = adicional * 1.50;
+        }
+
+        if(this.estadoCivil == 'c'){
+            adicional = adicional + 15000;
+        }
+        
+        salario = this.sueldoBase + adicional;
+
+        return salario;
+    }
+
 }

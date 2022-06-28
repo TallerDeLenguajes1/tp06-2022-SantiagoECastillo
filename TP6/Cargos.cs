@@ -1,4 +1,4 @@
-public enum Cargo{
+public enum Cargos{
     Auxliar,
     ADministrativo,
     Ingeniero,

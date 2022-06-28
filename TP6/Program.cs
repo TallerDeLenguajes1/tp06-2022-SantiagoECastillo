@@ -8,10 +8,9 @@ DateTime fechaIngreso3 = new DateTime(2022, 05, 24);
 DateTime fechaNac4 = new DateTime(1996, 7, 30);
 DateTime fechaIngreso4 = new DateTime(2022, 05, 24);
 
-Empleado empleado1 = new Empleado("Santiago","Castillo", fechaNac1, fechaIngreso1, 's', 'm', 60000);
-Empleado empleado2 = new Empleado("Agustin","Lobo", fechaNac2, fechaIngreso2, 's', 'm', 60000);
-Empleado empleado3 = new Empleado("Nestor","Campos", fechaNac3, fechaIngreso3,  's', 'm', 60000);
-Empleado empleado4 = new Empleado("Emanuel","Bilkis", fechaNac4, fechaIngreso4,  'c', 'm', 60000);
+Empleado empleado1 = new Empleado("Santiago","Castillo", fechaNac1, fechaIngreso1, 's', 'm', 60000, Cargos.Ingeniero);
+Empleado empleado2 = new Empleado("Agustin","Lobo", fechaNac2, fechaIngreso2, 's', 'm', 60000, Cargos.Investigador);
+Empleado empleado3 = new Empleado("Nestor","Campos", fechaNac3, fechaIngreso3,  's', 'm', 60000, Cargos.Auxliar);
+Empleado empleado4 = new Empleado("Emanuel","Bilkis", fechaNac4, fechaIngreso4,  'c', 'm', 60000, Cargos.Ingeniero);
 
-empleado1.antiguedad();
-
+Console.WriteLine("El salario es: " + empleado1.salario());
