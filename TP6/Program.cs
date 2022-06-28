@@ -13,4 +13,38 @@ Empleado empleado2 = new Empleado("Agustin","Lobo", fechaNac2, fechaIngreso2, 's
 Empleado empleado3 = new Empleado("Nestor","Campos", fechaNac3, fechaIngreso3,  's', 'm', 60000, Cargos.Auxliar);
 Empleado empleado4 = new Empleado("Emanuel","Bilkis", fechaNac4, fechaIngreso4,  'c', 'm', 60000, Cargos.Ingeniero);
 
-Console.WriteLine("El salario es: " + empleado1.salario());
+
+//Console.WriteLine("El salario es: " + empleado1.salario());
+//empleado1.infomacionEmpleado();
+
+
+Console.WriteLine("La empresa gasta un total de: $" + salariosTotales() + " en salarios");
+jubacionCercana();
+
+
+
+
+double salariosTotales(){
+    double total = empleado1.salario() + empleado2.salario() + empleado3.salario() + empleado4.salario();   
+    return total;
+}
+
+
+void jubacionCercana(){
+    Empleado[] jubilaciones = {empleado1, empleado2, empleado3, empleado4};
+    int anterior=0;
+    
+    for(int i=0; i<4; i++){
+        if(jubilaciones[i].edad() > anterior){
+            anterior = jubilaciones[i].edad();
+        }
+    }
+    
+    for(int i=0; i<4; i++){
+        if(jubilaciones[i].edad() == anterior){
+            Console.WriteLine("Empleado mas proximo  jubilarse");
+            jubilaciones[i].infomacionEmpleado();
+        }
+    }
+    
+}

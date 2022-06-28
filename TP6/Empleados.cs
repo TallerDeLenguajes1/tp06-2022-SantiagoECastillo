@@ -37,7 +37,7 @@ public class Empleado{
         return edad;
     }
 
-    public int jubilacio(){
+    public int jubilacion(){
         int jubilacion;
 
         if(this.genero == 'm'){
@@ -73,4 +73,15 @@ public class Empleado{
         return salario;
     }
 
+    public void infomacionEmpleado(){
+        Console.WriteLine($"Empleado: {this.apellido} {this.nombre}");
+        Console.WriteLine($"EDAD: {edad()}");
+        Console.WriteLine($"Genero: {this.genero}");
+        Console.WriteLine($"Estado civil: {this.estadoCivil}");
+        Console.WriteLine("Fecha de naciemiento: " + this.fechaNacimiento); //NO me deja usar el ToShortDateString
+        Console.WriteLine($"Años en la empresa: {antiguedad()}");
+        Console.WriteLine($"Años para jubilacion: {jubilacion()}");
+        Console.WriteLine($"SALARIO: {salario()}");
+
+    }
 }
